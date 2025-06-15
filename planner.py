@@ -56,26 +56,29 @@ Output format (JSON only):
 """
 
 def query_ollama(user_input: str, model="llama3") -> dict:
-    prompt = PROMPT_TEMPLATE.format(user_input=user_input)
-    try:
-        result = subprocess.run(["ollama", "run", model], input=prompt, text=True, capture_output=True)
-        response = result.stdout
-        # Try to extract JSON from response
-        start = response.find("{")
-        end = response.rfind("}") + 1
-        json_str = response[start:end]
-        return json.loads(json_str)
-    except Exception as e:
-        return {"error": str(e)}
+    # Simulated static response (mocked care plan)
+    return {
+        "medications": [
+            {"name": "Metformin", "dose": "500mg twice a day", "time": ["morning", "evening"]}
+        ],
+        "meals": [
+            {"meal": "breakfast", "suggestions": ["Oatmeal with fruit", "Boiled eggs and toast"]},
+            {"meal": "lunch", "suggestions": ["Grilled chicken salad", "Quinoa with vegetables"]},
+            {"meal": "dinner", "suggestions": ["Baked salmon with rice", "Veggie stir fry"]}
+        ],
+        "exercise": [
+            {"activity": "Stretching and short walk", "duration": "20 minutes", "frequency": "twice a day"}
+        ],
+        "rest": [
+            {"amount": "8 hours", "time": ["night"]}
+        ],
+        "notes": [
+            "Monitor blood sugar levels regularly.",
+            "Avoid high-sugar snacks.",
+            "Encourage regular physical activity."
+        ]
+    }
 
-def query_empathy_bot(user_message: str, model="llama3") -> str:
-    empathy_prompt = f"""
-You are a compassionate mental health assistant. A caregiver says: "{user_message}". 
-Respond with warmth, empathy, and emotional validation to help them feel heard and supported.  also give advice where appropriate.
-Keep your response under 80 words. Do not include technical or clinical advice. No JSON, just natural language.
-"""
-    try:
-        result = subprocess.run(["ollama", "run", model], input=empathy_prompt, text=True, capture_output=True)
-        return result.stdout.strip()
-    except Exception as e:
-        return f"⚠️ Error generating response: {str(e)}"
+
+def get_emotional_response(user_msg):
+    return "I'm here for you. It’s okay to feel overwhelmed — you're doing an amazing job. 💖"
