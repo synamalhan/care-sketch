@@ -3,7 +3,7 @@
 **CareSketch** is an AI-powered care planning assistant built for social good. It helps caregivers create personalized, goal-based daily care plans from natural language descriptions, enriched with emotion-aware context, risk detection, interactive scheduling, and exportable summaries.
 
 Built during the **Hack the Vibe 2025** hackathon, CareSketch focuses on empowering non-technical caregivers to deliver thoughtful, informed, and emotionally supportive care.
-
+The MVP is deployed [here](https://caresketch.streamlit.app/)
 ---
 
 ## 🌟 Features
