@@ -14,7 +14,7 @@ class CarePlanPDF(FPDF):
         self.set_font("Arial", 'I', 8)
         self.cell(0, 10, f'Page {self.page_no()}', align='C')
 
-def generate_pdf(plan_dict):
+def generate_pdf(plan_dict: dict)-> bytes:
     pdf = CarePlanPDF()
     pdf.add_page()
     pdf.set_auto_page_break(auto=True, margin=15)
