@@ -80,5 +80,5 @@ def query_ollama(user_input: str, model="llama3") -> dict:
     }
 
 
-def get_emotional_response(user_msg):
+def query_empathy_bot(user_msg):
     return "I'm here for you. It’s okay to feel overwhelmed — you're doing an amazing job. 💖"
