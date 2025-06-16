@@ -48,7 +48,5 @@ def generate_pdf(plan_dict: dict)-> bytes:
         pdf.ln(5)
 
     # Save as in-memory buffer
-    buffer = BytesIO()
-    pdf.output(buffer)
-    buffer.seek(0)
-    return buffer.read()
+    pdf_output = pdf.output(dest='S').encode('latin1')
+    return pdf_output
