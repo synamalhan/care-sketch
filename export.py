@@ -51,4 +51,4 @@ def generate_pdf(plan_dict):
     buffer = BytesIO()
     pdf.output(buffer)
     buffer.seek(0)
-    return buffer
+    return buffer.read()
