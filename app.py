@@ -189,6 +189,6 @@ if "generated_plan" in st.session_state:
 st.markdown("""
     <hr style='border:1px solid #eee;'>
     <p style='text-align: center; font-size: 14px; color: #999999;'>
-        Built with ❤️ at Hack the Vibe – CareSketch for Social Good 🌱
+        Built with ❤️ – CareSketch for Social Good 🌱
     </p>
 """, unsafe_allow_html=True)
